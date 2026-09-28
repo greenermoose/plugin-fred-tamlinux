@@ -3,7 +3,7 @@
 - **Date**: 2026-09-20
 - **Tool**: `codex` (Codex CLI `0.155.1`)
 - **Model**: GPT-5.6 Sol (`gpt-5.6-sol`)
-- **Transcript Reference**: `01a0be6a-6329-77b2-9413-b4cd5b7e7971`
+- **Transcript**: Retained privately by the author.
 - **Scope**: `omarchy-fred-sysinfo` public pre-release, suite README, and GitHub Pages showcase
 
 ## Prompt

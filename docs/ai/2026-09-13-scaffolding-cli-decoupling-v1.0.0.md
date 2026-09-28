@@ -4,7 +4,7 @@
 - **Primary AI Agent**: Antigravity (Google DeepMind) via Antigravity CLI (`agy 1.2.2`)
 - **AI Model**: Gemini 3.8 Flash (High) (`gemini-3.8-flash-high`)
 - **Commits**: `a4c896f` (v1.0.0 release)
-- **Transcript Reference**: `61f64733-0927-40f3-9ff5-b0c9b2572d28`
+- **Transcript**: Retained privately by the author.
 - **Participants**: Fred (@greenermoose), Antigravity
 
 ## Guiding Prompts

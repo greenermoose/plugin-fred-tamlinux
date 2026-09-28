@@ -3,7 +3,7 @@
 - **CLI Tool**: Cursor `3.21.16`
 - **Model**: `composer`
 - **Commit**: `eca1e40` (CLI rename) plus this provenance follow-up
-- **Transcript Reference**: `68f9fa04-2323-4102-841a-25ab29a68985`
+- **Transcript**: Retained privately by the author.
 
 ## Prompts
 

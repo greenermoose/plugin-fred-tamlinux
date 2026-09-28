@@ -64,7 +64,6 @@
 ## Provenance note
 
 Initial reconnaissance was done by `agy` (Antigravity CLI `1.2.7`, Gemini 3.8
-Flash High) in session `3eb22acb-1ed1-46e1-a06e-efd56bd84846`, which surveyed
-Omarchy internals and the marketplace registry but wrote no code before
-stopping on an API quota limit. All code in this session was written by Claude
+Flash High) in a session that surveyed Omarchy internals and the marketplace
+registry but wrote no code before stopping on an API quota limit. All code in this session was written by Claude
 Code.

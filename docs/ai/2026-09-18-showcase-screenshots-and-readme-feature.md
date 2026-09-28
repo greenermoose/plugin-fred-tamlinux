@@ -3,7 +3,7 @@
 - **Date**: 2026-09-18
 - **Primary AI Agent**: Antigravity (Google DeepMind) via Antigravity CLI (`agy 1.2.6`)
 - **AI Model**: Gemini 3.8 Flash (High) (`gemini-3.8-flash-high`)
-- **Transcript Reference**: `95afc24f-6e24-42b2-892e-b30f73e8b881`
+- **Transcript**: Retained privately by the author.
 - **Participants**: Fred (@greenermoose), Antigravity
 
 ## Guiding Prompts

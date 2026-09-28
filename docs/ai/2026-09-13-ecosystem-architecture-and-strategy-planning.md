@@ -3,7 +3,7 @@
 - **Date**: 2026-09-13
 - **Primary AI Agent**: Antigravity (Google DeepMind) via Antigravity CLI (`agy 1.2.2`)
 - **AI Model**: Gemini 3.8 Flash (High) (`gemini-3.8-flash-high`)
-- **Transcript Reference**: `b6898052-e347-438a-8d54-a7cefb7cffd0`
+- **Transcript**: Retained privately by the author.
 - **Participants**: Fred (@greenermoose), Antigravity
 
 ## Guiding Prompts
@@ -21,5 +21,5 @@
 > "Is this plan available to future sessions? It looks good but I need to end this conversation. Can I safely end this conversation without losing this plan? Also, note that I use claude, codex, grok and opencode as well, not just agy on my omarchy system. I generally use claude and codex to generate plans, but occasionally I use agy for that. I tend to use agy for coding because it is fast, works well, and has generous token limits. I tend to use opencode for questions about omarchy because it is free and good enough for answering questions like that, which conserves tokens for coding tasks from other AI models."
 
 ## Architectural Decisions
-1. **Defined 6-Phase Ecosystem Roadmap**: Authored [`docs/plans/omarchy-fred-plugin-ecosystem-plan.md`](file:///home/fred/docs/plans/omarchy-fred-plugin-ecosystem-plan.md) covering project scaffolding, CLI refactoring, transparent AI provenance standards, marketplace registry verification, GitHub showcase site, and workstation deployment.
+1. **Defined 6-Phase Ecosystem Roadmap**: Authored `omarchy-fred-plugin-ecosystem-plan.md` in Fred's private workstation configuration, covering project scaffolding, CLI refactoring, transparent AI provenance standards, marketplace registry verification, GitHub showcase site, and workstation deployment.
 2. **Established Multi-Agent Division of Labour**: Recorded Fred's operational model for pairing Claude/Codex (planning), Antigravity (coding/implementation), and OpenCode (Omarchy Q&A) into memory `fred-ai-toolchain-and-model-usage`.

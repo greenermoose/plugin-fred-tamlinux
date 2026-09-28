@@ -2,7 +2,7 @@
 
 - **Tool:** Antigravity CLI (`agy`) `1.2.9`
 - **Model:** Gemini 3.8 Flash (High) (`gemini-3.8-flash-high`)
-- **Session:** `aee97cdc-9ba8-4632-ab2c-0815cb66686c`
+- **Transcript**: Retained privately by the author.
 - **User prompt:**
   > On plugin-fred-tamlinux I edited the docs/index.html page to link to my tamlinux repo. But the visited link color on a black background makes it hard to read. Fix the CSS so that there is still a difference between unvisited and visited links, but the unvisited link color is more readable on the black background.
 

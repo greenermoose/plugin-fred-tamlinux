@@ -30,6 +30,9 @@ Every repository in the `*-fred-tamlinux` suite implements:
    ```
    Commits co-authored by Claude or other agents carry their corresponding GitHub identity trailers.
 3. **Open Architecture Plans**: Detailed markdown specifications and security guidelines committed to version control.
+4. **Private transcripts, public record**: Session transcripts are retained privately by the author, so records carry no session IDs or local transcript paths. Private details inside quoted prompts are replaced by `[redacted: …]` markers.
+
+How to read these records and trace a line of code to its session is explained in the Tamlinux [AI provenance standard](https://github.com/greenermoose/tamlinux/blob/main/docs/ai-provenance-standard.md).
 
 ---
 
@@ -77,3 +80,10 @@ Codex CLI `0.156.1` (`gpt-6-sol`) established the root upstream reference
 and dated survey directory for this repository. This was documentation only;
 no field survey or runtime change was made.
 [Session record](docs/ai/2026-09-23-upstream-survey-foundation.md).
+
+## 2026-09-28 private session IDs
+
+Claude Code `2.1.283` (`claude-opus-5-5`) removed session IDs and local
+transcript paths from this repository's AI records and linked the public
+provenance standard. Documentation only.
+[Session record](docs/ai/2026-09-28-private-session-ids.md).

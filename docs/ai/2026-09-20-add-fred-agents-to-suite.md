@@ -4,8 +4,7 @@
 - **Tool**: `opencode` (OpenCode `1.18.31`)
 - **Model**: Big Pickle (`big-pickle`)
 - **Scope**: `omarchy-fred-plugin` catalog, README, GitHub Pages showcase
-- **Transcript**: opencode store session `ses_f40a47824ffeTRjyEoDjuA9NUj`
-  (`~/.local/share/opencode/opencode.db`)
+- **Transcript**: Retained privately by the author.
 - **Attribution**: verified.
 
 ## Prompt

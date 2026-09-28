@@ -3,7 +3,7 @@
 - **Date**: 2026-09-20
 - **Tool**: `claude` (Claude Code `2.1.278`)
 - **Model**: Claude Opus 5 (`claude-opus-5`)
-- **Transcript Reference**: `a18febdb-55c9-42f4-87f7-2ae104759b15`
+- **Transcript**: Retained privately by the author.
 - **Scope**: `omarchy-fred-keyboard` public pre-release, suite README, and
   GitHub Pages showcase
 - **Attribution**: verified; versions read live.

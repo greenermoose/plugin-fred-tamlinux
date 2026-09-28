@@ -2,7 +2,7 @@
 
 - **CLI Tool**: `claude` (Claude Code `2.1.278`)
 - **Model**: Claude Opus 5 (`claude-opus-5`)
-- **Session**: `1f48910e-13d3-45da-a0eb-a93fddd4ba97`
+- **Transcript**: Retained privately by the author.
 - **Implementation Commit**: recorded on push
 
 ## Prompts

@@ -2,7 +2,7 @@
 
 - **Tool:** Antigravity CLI (`agy`) `1.2.9`
 - **Model:** Gemini 3.8 Flash (High) (`gemini-3.8-flash-high`)
-- **Conversation ID:** `b76c4bc7-94b9-4bfd-b673-e255374b2f10`
+- **Transcript**: Retained privately by the author.
 - **User prompt:**
   > Please publish fred.agents 1.2.0
 
