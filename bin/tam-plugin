@@ -46,8 +46,24 @@ else
   PLUGINS_SRC=""
 fi
 
-# Known Fred plugins catalog
+# Known Fred plugins catalog. The source of truth is the Tamlinux product
+# repo; each plugin lives in desktop/plugins/fred.<id> (history imported as
+# fred.<id>/main, fred.<id>/develop/2.0.0 and fred.<id>/<tag> refs).
 declare -A CATALOG_REPOS=(
+  ["fred.workspaces"]="https://github.com/greenermoose/tamlinux.git"
+  ["fred.clock"]="https://github.com/greenermoose/tamlinux.git"
+  ["fred.sysinfo"]="https://github.com/greenermoose/tamlinux.git"
+  ["fred.monitor"]="https://github.com/greenermoose/tamlinux.git"
+  ["fred.weather"]="https://github.com/greenermoose/tamlinux.git"
+  ["fred.tides"]="https://github.com/greenermoose/tamlinux.git"
+  ["fred.keyboard"]="https://github.com/greenermoose/tamlinux.git"
+  ["fred.agents"]="https://github.com/greenermoose/tamlinux.git"
+)
+
+# Frozen Omarchy-era repositories for the retained 1.x install path. They are
+# archived and unchanged; install still targets the Omarchy runtime via
+# `omarchy plugin add`, which needs a plugin root, so it keeps these URLs.
+declare -A FROZEN_REPOS=(
   ["fred.workspaces"]="https://github.com/greenermoose/workspaces-fred-tamlinux.git"
   ["fred.clock"]="https://github.com/greenermoose/clock-fred-tamlinux.git"
   ["fred.sysinfo"]="https://github.com/greenermoose/sysinfo-fred-tamlinux.git"
@@ -75,7 +91,18 @@ declare -A CATALOG_UNPUBLISHED=()
 
 published_dir() {
   local id="$1"
-  printf '%s/%s-fred-tamlinux\n' "$PUBLISHED_ROOT" "${id#fred.}"
+  printf '%s/tamlinux/desktop/plugins/%s\n' "$PUBLISHED_ROOT" "$id"
+}
+
+# The git repository that contains a published plugin directory (the Tamlinux
+# product checkout when PUBLISHED_ROOT is the workspace root).
+published_root() {
+  local id="$1" dir
+  dir="$(published_dir "$id")"
+  while [[ "$dir" != "/" && ! -d "$dir/.git" ]]; do
+    dir="$(dirname "$dir")"
+  done
+  [[ -d "$dir/.git" ]] && printf '%s\n' "$dir"
 }
 
 fail() {
@@ -344,10 +371,12 @@ create_test_snapshot() {
     [[ -d "$source" ]] || fail "deployed directory not found: $source"
   else
     source="$(published_dir "$id")"
-    repo_root="$source"
-    rel_prefix=""
-    [[ -d "$source/.git" ]] ||
-      fail "published repository not found: $source (set FRED_PUBLISHED_ROOT to customize)"
+    repo_root="$(published_root "$id")"
+    [[ -n "$repo_root" ]] ||
+      fail "tamlinux product checkout not found below $source (set FRED_PUBLISHED_ROOT to customize)"
+    rel_prefix="${source#"$repo_root"/}"
+    [[ -d "$source" ]] ||
+      fail "published plugin directory not found: $source (set FRED_PUBLISHED_ROOT to customize)"
   fi
 
   command -v git >/dev/null 2>&1 || fail "git is required for test snapshots"
@@ -823,8 +852,16 @@ cmd_list() {
     local pub_tag="-"
     if [[ -n "${CATALOG_UNPUBLISHED[$id]:-}" ]]; then
       pub_tag="unpublished"
-    elif [[ -d "$pub_dir/.git" ]]; then
-      pub_tag="$(git -C "$pub_dir" describe --tags --exact-match 2>/dev/null || git -C "$pub_dir" describe --tags 2>/dev/null || echo "(dev)")"
+    elif [[ -d "$pub_dir" ]]; then
+      local prod_root
+      prod_root="$(published_root "$id")"
+      if [[ -n "$prod_root" ]]; then
+        pub_tag="$(git -C "$prod_root" describe --tags --match "$id/*" --exact-match HEAD 2>/dev/null \
+          || git -C "$prod_root" describe --tags --match "$id/*" --abbrev=0 2>/dev/null \
+          || echo "(dev)")"
+      else
+        pub_tag="Available"
+      fi
     elif [[ -n "${CATALOG_REPOS[$id]:-}" ]]; then
       pub_tag="Available"
     fi
@@ -905,7 +942,11 @@ cmd_install() {
   [[ -n "$id" ]] || fail "install requires a plugin id (e.g. fred.clock)"
   [[ -z "${CATALOG_UNPUBLISHED[$id]:-}" ]] ||
     fail "$id is not published yet (coming soon); there is no public repository to install from"
-  local repo_url="${CATALOG_REPOS[$id]:-https://github.com/greenermoose/omarchy-$id.git}"
+  local repo_url="${FROZEN_REPOS[$id]:-${CATALOG_REPOS[$id]:-https://github.com/greenermoose/omarchy-$id.git}}"
+
+  if [[ -n "${FROZEN_REPOS[$id]:-}" ]]; then
+    echo "note: $id installs the retained Omarchy 1.x release from its frozen repository"
+  fi
 
   if ! command -v omarchy >/dev/null 2>&1; then
     fail "omarchy CLI not found in PATH"
